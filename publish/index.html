@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Identity-Signup</title>
+    <link rel="stylesheet" href="./bootstrap.flat.min.css">
+    <link rel="stylesheet" href="./index.css">
+    <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+
+<body>
+    <div>
+        <h3>Hi! Let's play with Identity JWT user_metadata!</h3>
+        <button type="submit" class="btn btn-primary" id="open">Open Identity Login Modal</button>
+        <textarea name="" id="textArea" cols="30" rows="10"></textarea>
+        <button type="submit" class="btn btn-outline-dark" id="save">Save new user_metadata</button>
+        <div>
+
+            <pre class="body" id="user">User Info will appear here</pre>
+        </div>
+    </div>
+    <script>
+        const infoPre = document.querySelector("#user");
+        const textArea = document.querySelector("#textArea");
+        const format_stringify = (data) => JSON.stringify(data, null, 2)
+        const showCurrentInfo = (user) => {
+            const str = format_stringify(user)
+            infoPre.innerHTML = str;
+        }
+        let str
+        const open = () => netlifyIdentity.open()
+        const save = () => netlifyIdentity.gotrue.currentUser().update({
+            data: {
+                custom_data_from_ui: textArea.value
+            }
+        }).then(user => showCurrentInfo(user))
+
+        document.querySelector("#open").addEventListener("click", open)
+        document.querySelector("#save").addEventListener("click", save)
+
+
+        console.log(textArea.value)
+
+        const user = netlifyIdentity.currentUser();
+        netlifyIdentity.on('login', user => {
+            showCurrentInfo(user)
+            if (user.user_metadata.custom_data_from_ui) {
+                textArea.value = format_stringify(user.user_metadata.custom_data_from_ui).replace(/"/g, "")
+            }
+        });
+    </script>
+</body>
+
+</html>

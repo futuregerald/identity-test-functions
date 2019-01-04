@@ -1,0 +1,6 @@
+[build]
+  publish = "_site/"
+  functions = "func/"
+  command = "env && node testme.js"
+[build.environment]
+  TEST5 = "test_variable_testing"

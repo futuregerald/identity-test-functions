@@ -16,6 +16,7 @@ h3 {
 
 pre {
     margin-top: 2rem;
+    max-width: 70vw;
 }
 
 .body {
