@@ -42,9 +42,15 @@
         const obj = JSON.parse(data)
         const str = JSON.stringify(obj, null, 2)
         console.log(str)
-        document.querySelector("#user").innerHTML = str;
+        const infoPre = document.querySelector("#user");
+        infoPre.innerHTML = str;
         document.querySelector(".btn").addEventListener("click", open)
         const user = netlifyIdentity.currentUser();
+        netlifyIdentity.on('login', user => {
+            // let obj = JSON.parse(user)
+            let str = JSON.stringify(user, null, 2)
+            infoPre.innerHTML = str;
+        });
     </script>
 </body>
 
