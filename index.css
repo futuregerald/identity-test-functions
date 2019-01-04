@@ -1,0 +1,32 @@
+html>body>div {
+    min-width: 100vw;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    justify-items: center;
+}
+
+h3 {
+    margin-top: 5rem;
+}
+
+.btn {
+    margin: 3rem;
+}
+
+pre {
+    margin-top: 2rem;
+}
+
+.body {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    justify-items: center;
+    align-items: start;
+    min-width: 20rem;
+    min-height: 10rem;
+    border-radius: 1rem;
+    background-color: rgb(236, 234, 234);
+}
