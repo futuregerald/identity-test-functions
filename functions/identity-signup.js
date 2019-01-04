@@ -4,7 +4,7 @@ exports.handler = function(event, context, callback) {
       roles: ['test', 'user', 'member'],
       my_user_info: "this is user info that the user can't change from the UI",
     },
-    user_metadata: { custom_data_from_ui: 'this is pretty awesome' },
+    user_metadata: { custom_data_from_function: 'this is pretty awesome' },
   };
 
   callback(null, {
