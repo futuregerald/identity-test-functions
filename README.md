@@ -4,7 +4,17 @@ This is an example of how to update user_metadata and app_metadata for users on 
 
 ## user_metadata
 
-You can update user_metadata from both the UI and from inside of a netlify function. Since it can be updated from the client, it is not secure and users can update their own info if they know the code for it. it's safe to store info in here that you don't mind the user changing.
+You can update user_metadata from both the UI and from inside of a netlify function. Since it can be updated from the client, it is not secure and users can update their own info if they know the code for it. it's safe to store info in here that you don't mind the user changing. The method used to update the user_metadata in the frontend JS is:
+
+```
+netlifyIdentity.gotrue.currentUser().update({
+            data: {
+                you: "are awesome"
+            }
+        }).then(user => console.log(user))
+```
+
+This actually uses the gotrue library directly to update the user. Gotrue-js is the library that the netlify-identity-widget is built on. You can find more information on it at https://github.com/netlify/gotrue-js
 
 ## app_metadata
 

@@ -55,6 +55,11 @@
                 textArea.value = format_stringify(user.user_metadata.custom_data_from_ui).replace(/"/g, "")
             }
         });
+        netlifyIdentity.gotrue.currentUser().update({
+            data: {
+                gerald: "is awesome adffasdfsf"
+            }
+        }).then(user => console.log(user))
 
         // adding some event listeners.
         document.querySelector("#open").addEventListener("click", open)
