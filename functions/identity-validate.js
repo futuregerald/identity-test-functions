@@ -4,7 +4,7 @@ exports.handler = function(event, context, callback) {
   };
 
   callback(null, {
-    statusCode: 200,
+    statusCode: 401,
     body: JSON.stringify(responseBody),
   });
 };
