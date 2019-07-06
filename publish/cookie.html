@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Enter the beta!</title>
+    <link rel="stylesheet" href="./bootstrap.flat.min.css">
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <div>
+        <h3>Hi! Let's beta test our new home page!</h3>
+        <button type="submit" class="btn btn-primary" id="enter">Enter the beta!</button>
+        <button type="submit" class="btn btn-outline-dark" id="leave">Leave the beta!</button>
+        <div>
+            <p id="notice">You are currently <strong id="in-or-not"></strong> in the beta!</p>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script>
+        // P tag to let you know if you are in the beta
+        const inOrNot = document.querySelector("#in-or-not");
+        // save nf_ab cokie and clear it
+        const enter = () => Cookies.set('nf_ab', 'jamstack');
+        const leave = () => Cookies.remove('nf_ab');
+        (() => {
+            if (Cookies.get('nf_ab') !== "jamstack") {
+                inOrNot.innerHTML = "NOT"
+            }
+        })()
+        // adding some event listeners.
+        document.querySelector("#enter").addEventListener("click", enter)
+        document.querySelector("#leave").addEventListener("click", leave)
+    </script>
+</body>
+
+</html>
