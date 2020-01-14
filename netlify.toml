@@ -3,8 +3,8 @@
   functions = "functions/"
 
 [[redirects]]
-  from = "/authtest"
+  from = "/testauth"
   to = "https://enfhefy94pqlv.x.pipedream.net"
   status = 200
   force = true
-  sign = "secret"
+  signed = "secret"
