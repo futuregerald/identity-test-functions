@@ -1,3 +1,9 @@
 [build]
   publish = "publish/"
   functions = "functions/"
+
+[[redirects]]
+  from = "/authtest"
+  to = "https://enfhefy94pqlv.x.pipedream.net"
+  status = 200
+  force = true
