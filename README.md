@@ -25,3 +25,5 @@ In the example provided, I use a event-triggered function called `identity-signu
 ## Demo
 
 https://identity-example-update-user.netlify.com/
+
+Thank you and I hope this helps!
